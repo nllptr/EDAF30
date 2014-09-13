@@ -1,3 +1,7 @@
+build-*/
+*.pro
+*.pro.user
+
 # Compiled Object files
 *.slo
 *.lo
