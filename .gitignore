@@ -1,3 +1,6 @@
+# pri files (Qt Creator)
+*.pri
+
 build-*/
 *.pro
 *.pro.user
