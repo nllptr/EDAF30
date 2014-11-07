@@ -10,7 +10,7 @@ int main() {
         cout << "Not enough judges.";
         return 0;
     }
-    int scores[judges];
+    double scores[judges];
     cout << "Enter scores :" << endl;
     for(int i = 0; i < judges; i++) {
         cin >> scores[i];
@@ -28,6 +28,7 @@ int main() {
         total += scores[i];
     }
     total = total - (scores[min] + scores[max]);
-    cout << total/(judges - 2);
+    double mean = total/(double)(judges - 2);
+    cout << mean;
     return 0;
 }
