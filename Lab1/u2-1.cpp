@@ -24,12 +24,14 @@ int main () {
     }
 
     cout << endl << "Checking winnings..." << endl;
-    for(int j = 0; j <= i; j++)
+    for(int j = 0; j < i; j++)
         check_winnings(win, numbers[j]);
 
 //    for(int j = 0; j <= i; j++) {
 //        cout << numbers[j] << endl;
 //    }
+
+    return 0;
 }
 
 // Gets input from the user and stores it in
@@ -47,10 +49,39 @@ bool get_number(char * s) {
     return returnval;
 }
 
+// Compares the winning string (w) against
+// another string (s) to determine the winnings.
 void check_winnings(char * w, char * s) {
-    if(strcmp(w, s) == 0) {
+
+    // Check for winnings according to rule 1
+    long winnings = 1;
+    for(int i = 5; i >= 0; i--) {
+        if(w[i] == s[i])
+            winnings *= 10;
+        else
+            break;
+    }
+    if(winnings == 1)
+        winnings = 0;
+
+    // Check for winnings according to rule 2
+    char first_three[4];
+    for(int i = 0; i < 3; i++)
+        first_three[i] = s[i + 3];
+    first_three[3] = '\0';
+    for(int i = 0; i < 3; i++) {
+        bool flag = true;
+        for(int j = 0; j < 3; j++) {
+            if(w[i + j] != first_three[j]) flag = false;
+            else if(flag == true && j == 2) winnings += 250;
+        }
+//        cout << "Checked first permutation. Winnings are " << winnings << endl;
+    }
+
+
+    if(winnings > 0) {
         cout << "==============================" << endl;
-        cout << s << " is a winner!" << endl;
+        cout << s << " won " << winnings << "!" << endl;
         cout << "==============================" << endl;
     }
 }
