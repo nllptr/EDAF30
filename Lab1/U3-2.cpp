@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
@@ -15,20 +16,20 @@ int main() {
     for(int i = 0; i < judges; i++) {
         cin >> scores[i];
     }
-    int max = 0;
-    int min = 0;
+    int max = INT_MIN;
+    int min = INT_MAX;
     int total = 0;
     for(int i = 0; i < judges; i++) {
-        if(scores[i] < scores[min]) {
-            min = i;
+        if(scores[i] < min) {
+            min = scores[i];
         }
-        if(scores[i] > scores[max]) {
-            max = i;
+        if(scores[i] > max) {
+            max = scores[i];
         }
         total += scores[i];
     }
-    total = total - (scores[min] + scores[max]);
-    double mean = total/(double)(judges - 2);
+    total = total - (max + min);
+    double mean = (double)total/(judges - 2);
     cout << mean;
     return 0;
 }
