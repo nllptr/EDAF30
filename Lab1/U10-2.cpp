@@ -26,7 +26,7 @@ int main() {
     for(int i = 0; i < roman.length(); i++) {
         if(i < roman.length()) {
             if(decimal[i] == decimal[i+1]/2) {
-                cout << "Invalid format. " << roman[i] << " cannot preceed " << roman[i+1] << endl;
+                cout << "Invalid format. " << roman[i] << " cannot precede " << roman[i+1] << endl;
                 return 1;
             } else if (i < roman.length() - 1 && decimal[i] < decimal[i+2]) {
                 cout << "The sequence " << roman[i] << roman[i+1] << roman[i+2] << " is not allowed." << endl;
