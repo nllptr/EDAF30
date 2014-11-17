@@ -4,16 +4,22 @@
 
 using namespace std;
 
-void randMat();
+void randMat(int[][4]);
 
 int main() {
-    randMat();
+    int matrix [4][4];
+    randMat(matrix);
+    for(int a = 0; a < 4; a++) {
+        for(int b = 0; b < 4; b++) {
+            cout << setw(3) << matrix[a][b];
+        }
+        cout << endl;
+    }
 }
 
-void randMat() {
+void randMat(int matrix[][4]) {
     srand(time(NULL));
     vector<int> vec (16);
-    int matrix [4][4];
     int pop;
     for(int i = 0; i < 16; i++) {
         vec[i] = i;
@@ -24,11 +30,5 @@ void randMat() {
             matrix[a][b] = vec[pop];
             vec.erase(vec.begin()+pop, vec.begin()+pop+1);
         }
-    }
-    for(int a = 0; a < 4; a++) {
-        for(int b = 0; b < 4; b++) {
-            cout << setw(3) << matrix[a][b];
-        }
-        cout << endl;
     }
 }
