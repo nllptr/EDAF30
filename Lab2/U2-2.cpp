@@ -21,7 +21,7 @@ void kvadratkubtabell(int n) {
         num = num/10;
         length++;
     }
-    cout << "Kvadratrottabell för " << n << endl;
+    cout << "Kvadratkubtabell för " << n << endl;
     for(int i = 1; i < n+1; i++) {
         cout << "i: " << setw(3) << i << "   " << setw(length) << pow(i, 2) << "   " << setw(length) << pow(i, 3) << "\n";
     }

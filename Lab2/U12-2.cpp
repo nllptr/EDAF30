@@ -7,7 +7,7 @@ string toUpperCase(string);
 string toMorse(string);
 
 int main() {
-    string s = "Hej vi sitter och PROGRAMMERAR på SKOLAN åäö";
+    string s = "Hello";
     //cout << toUpperCase(s) << endl;
     cout << toMorse(toUpperCase(s)) << endl;
 }
