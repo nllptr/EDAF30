@@ -15,7 +15,8 @@ int main()
 {
     // Init
     int matrix[4][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 0}};
-    randomizeMatrix(matrix);
+    //int matrix[4][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {0, 13, 14, 15}};
+    //randomizeMatrix(matrix);
     int zeroX, zeroY;
     findIndex(0, matrix, zeroX, zeroY);
 
@@ -26,14 +27,16 @@ int main()
         printMatrix(matrix);
 
         // Won game?
-        int n = 0;
+        int n = 1;
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 4; j++) {
-                if(matrix[i][j] - n == 1)
+                if(matrix[i][j] == n)
                     n++;
+                else
+                    break;
             }
         }
-        if(n == 15) {
+        if(n == 16) {
             cout << "YOU WON THE GAME!" << endl;
             break;
         }
