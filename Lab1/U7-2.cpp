@@ -12,7 +12,7 @@ int main() {
         return 1;
     }
     for(int i = 0; i < 3; i++) {
-        if(regnum[i] - 'A' < 0 || regnum[i] - 'A' > 25) {
+        if(regnum[i] - 'A' < 0 || regnum[i] - 'A' > 25) { //isalpha och isdigit
             cout << "Ogiltligt registreringsnummer (tecken): " << regnum[i];
             return 1;
         }

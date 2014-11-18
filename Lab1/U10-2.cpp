@@ -25,12 +25,14 @@ int main() {
 
     for(int i = 0; i < roman.length(); i++) {
         if(i < roman.length()) {
-            if(decimal[i] == decimal[i+1]/2) {
-                cout << "Invalid format. " << roman[i] << " cannot precede " << roman[i+1] << endl;
-                return 1;
-            } else if (i < roman.length() - 1 && decimal[i] < decimal[i+2]) {
-                cout << "The sequence " << roman[i] << roman[i+1] << roman[i+2] << " is not allowed." << endl;
-                return 1;
+            if(decimal[i] < decimal[i+1]) {
+                if(decimal[i] == decimal[i+1]/2) {
+                    cout << "Invalid format. " << roman[i] << " cannot precede " << roman[i+1] << endl;
+                } else if(i < (roman.length() - 2) && (decimal[i] <= decimal[i+2])) {
+                    cout << "The sequence " << roman[i] << roman[i+1] << roman[i+2] << " is not allowed." << endl;
+                } else if(i < (roman.length() - 3) && (decimal[i] == decimal[i+2] && decimal[i] == decimal[i+3])) {
+                    cout << "The sequence " << roman[i] << roman[i+1] << roman[i+2] << roman[i+3] << " is not allowed." << endl;
+                }
             }
         }
     }

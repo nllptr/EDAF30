@@ -11,7 +11,7 @@ int main() {
     string in;
     string out = "";
     cout << "Skriv in en sträng: ";
-    cin >> in;
+    getline(cin, in);
     for(int i = in.length()-1; i >= 0; i--) {
         out += in[i];
     }
