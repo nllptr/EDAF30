@@ -11,7 +11,7 @@ public:
     void visa();
     Myntsida uppsida();
 private:
-    int sida;
+    Myntsida sida;
 };
 
 #endif // MYNT_H

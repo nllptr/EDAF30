@@ -4,8 +4,8 @@
 
 Mynt::Mynt()
 {
-    std::srand(time(NULL));
-    sida = std::rand() % 2;
+    //std::srand(time(NULL));
+    kasta();
 }
 
 void Mynt::kasta() {
@@ -13,9 +13,9 @@ void Mynt::kasta() {
 }
 
 void Mynt::visa() {
-    std::cout << ((uppsida() == krona) ? "Krona" : "Klave") << std::endl;
+    std::cout << (sida == krona ? "Krona" : "Klave");
 }
 
 Myntsida Mynt::uppsida() {
-    return sida == 0 ? krona : klave;
+    return sida;
 }
