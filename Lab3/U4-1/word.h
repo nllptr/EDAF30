@@ -5,6 +5,7 @@ class Word
 {
 public:
     Word(char *sw, char *eng);
+    Word(const Word &w);
     ~Word();
     const char *get_sw() const;
     const char *get_eng() const;

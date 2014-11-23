@@ -8,6 +8,13 @@ Word::Word(char *sw, char *eng) {
     strcpy(english, eng);
 }
 
+Word::Word(const Word &w) {
+    swedish = new char[strlen(w.get_sw())];
+    strcpy(swedish, w.get_sw());
+    english = new char[strlen(w.get_eng())];
+    strcpy(english, w.get_eng());
+}
+
 Word::~Word() {
     delete[] swedish;
     delete[] english;

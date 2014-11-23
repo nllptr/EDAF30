@@ -2,16 +2,20 @@
 #define DICTIONARY_H
 
 #include <vector>
-#include <cstring>
+#include <string>
+
+#include "word.h"
+
+using namespace std;
 
 class Dictionary
 {
 public:
-    Dictionary();
     void addWord(char *sw, char *eng);
-    char * findSwedish(char *sw);
+    string findSwedish(char *sw);
+    void printAll();
 private:
-    vector<string> v;
+    vector<Word> v;
 };
 
 #endif // DICTIONARY_H
