@@ -7,7 +7,7 @@ Personnummer::Personnummer() : valid(false)
     strcpy(pNr, "0000000000");
 }
 
-bool Personnummer::operator !()
+bool Personnummer::operator!()
 {
     return !valid;
 }
