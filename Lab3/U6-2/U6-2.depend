@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1416839838 source:/home/jp/code/EDAF30/Lab3/U6-2/main.cpp
+	<iostream>
+	"personnummer.h"
+
+1416840038 /home/jp/code/EDAF30/Lab3/U6-2/personnummer.h
+	<iostream>
+
+1416842734 source:/home/jp/code/EDAF30/Lab3/U6-2/personnummer.cpp
+	"personnummer.h"
+	<iostream>
+	<cstring>
+

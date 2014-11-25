@@ -1,6 +1,7 @@
 # Code Blocks stuff
 *.cbp
 *.workspace
+*.layout
 
 # pri files (Qt Creator)
 *.pri
