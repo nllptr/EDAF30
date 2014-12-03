@@ -39,8 +39,9 @@ int main()
         dynAllocPets[i]->~Pet();
     }
 
+    /*
     cout << endl << "Trying to declare oject of type Pet (will not compile)." << endl;
-    Pet pet;
+    Pet pet;*/
     return 0;
 }
 

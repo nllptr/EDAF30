@@ -5,8 +5,8 @@ using namespace std;
 
 
 Vektor::Vektor(int lng) : ant(lng) {
-    //assert(ant>=0); // Indexkontroll
-    if(ant < 0) throw invalid_argument("Vektor::Vektor(int lng): lng < 0");
+    assert(ant>=0); // Indexkontroll
+    //if(ant < 0) throw invalid_argument("Vektor::Vektor(int lng): lng < 0");
     p = new int[ant]; // Dynamisk allokering
 }
 
