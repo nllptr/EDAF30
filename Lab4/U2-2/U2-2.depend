@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1417608735 source:/home/jp/code/EDAF30/Lab4/U2-2/bird.cpp
+	"bird.h"
+
+1417608678 /home/jp/code/EDAF30/Lab4/U2-2/bird.h
+	"pet.h"
+
+1417608624 /home/jp/code/EDAF30/Lab4/U2-2/pet.h
+	<iostream>
+
+1417608802 source:/home/jp/code/EDAF30/Lab4/U2-2/cat.cpp
+	"cat.h"
+
+1417608767 /home/jp/code/EDAF30/Lab4/U2-2/cat.h
+	"pet.h"
+
+1417608866 source:/home/jp/code/EDAF30/Lab4/U2-2/dog.cpp
+	"dog.h"
+
+1417608834 /home/jp/code/EDAF30/Lab4/U2-2/dog.h
+	"pet.h"
+
+1417609024 source:/home/jp/code/EDAF30/Lab4/U2-2/main.cpp
+	<iostream>
+	"pet.h"
+	"bird.h"
+	"cat.h"
+	"dog.h"
+
+1417608641 source:/home/jp/code/EDAF30/Lab4/U2-2/pet.cpp
+	"pet.h"
+
