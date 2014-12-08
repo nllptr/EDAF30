@@ -2,6 +2,8 @@
 
 #include <stdexcept>
 
+using namespace std;
+
 Stack::Stack(int max)
 {
     maxSize = max;
@@ -20,24 +22,24 @@ void Stack::clear()
     data = new int[maxSize];
 }
 
-bool Stack::empty()
+bool Stack::empty() const
 {
     return (num == 0 ? true : false);
 }
 
-bool Stack::full()
+bool Stack::full() const
 {
     return (num == maxSize ? true : false);
 }
 
 int Stack::pop()
 {
-    if(num == 0) throw (length_error);
-    return data[num--];
+    if(num == 0) throw length_error("Stack is empty.");
+    return data[--num];
 }
 
 void Stack::push(int value)
 {
-    if(num == maxSize) throw (length_error);
+    if(num == maxSize) throw length_error("Stack is full.");
     data[num++] = value;
 }
