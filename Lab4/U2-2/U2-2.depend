@@ -30,3 +30,34 @@
 1417608641 source:/home/jp/code/EDAF30/Lab4/U2-2/pet.cpp
 	"pet.h"
 
+1418002940 source:/home/gus/code/EDAF30/Lab4/U2-2/main.cpp
+	<iostream>
+	"pet.h"
+	"bird.h"
+	"cat.h"
+	"dog.h"
+
+1418001718 /home/gus/code/EDAF30/Lab4/U2-2/pet.h
+	<iostream>
+
+1418001718 /home/gus/code/EDAF30/Lab4/U2-2/bird.h
+	"pet.h"
+
+1418001718 /home/gus/code/EDAF30/Lab4/U2-2/cat.h
+	"pet.h"
+
+1418001718 /home/gus/code/EDAF30/Lab4/U2-2/dog.h
+	"pet.h"
+
+1418001718 source:/home/gus/code/EDAF30/Lab4/U2-2/bird.cpp
+	"bird.h"
+
+1418001718 source:/home/gus/code/EDAF30/Lab4/U2-2/cat.cpp
+	"cat.h"
+
+1418001718 source:/home/gus/code/EDAF30/Lab4/U2-2/dog.cpp
+	"dog.h"
+
+1418001718 source:/home/gus/code/EDAF30/Lab4/U2-2/pet.cpp
+	"pet.h"
+
