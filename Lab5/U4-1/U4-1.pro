@@ -7,5 +7,5 @@ CONFIG -= qt
 SOURCES += main.cpp
 
 HEADERS += \
-    singlell.h
+    dbllinked.h
 
