@@ -13,3 +13,17 @@
 	<assert.h>
 	<stdexcept>
 
+1418041464 source:/home/jp/code/EDAF30/Lab4/U4-2/main.cpp
+	<iostream>
+	<stdexcept>
+	<typeinfo>
+	"vektor.h"
+
+1418041464 /home/jp/code/EDAF30/Lab4/U4-2/vektor.h
+	<ostream>
+
+1418047669 source:/home/jp/code/EDAF30/Lab4/U4-2/vektor.cpp
+	"vektor.h"
+	<assert.h>
+	<stdexcept>
+

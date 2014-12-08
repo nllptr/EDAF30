@@ -41,7 +41,7 @@ int Queue::dequeue()
 {
     if(num == 0) throw length_error("Queue is empty.");
     int temp = data[head];
-    head++;
+    head = (++head) % maxSize;
     num--;
     return temp;
 }
@@ -50,6 +50,6 @@ void Queue::enqueue(int value)
 {
     if(num == maxSize) throw length_error("Queue is full.");
     data[tail] = value;
-    tail++;
+    tail = (++tail) % maxSize;
     num++;
 }

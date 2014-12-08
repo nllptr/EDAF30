@@ -12,3 +12,16 @@
 1418006828 /home/gus/code/EDAF30/Lab4/U3-2/rum.h
 	<iostream>
 
+1418041464 source:/home/jp/code/EDAF30/Lab4/U3-2/bostad.cpp
+	"bostad.h"
+
+1418041464 /home/jp/code/EDAF30/Lab4/U3-2/bostad.h
+	"rum.h"
+
+1418041464 /home/jp/code/EDAF30/Lab4/U3-2/rum.h
+	<iostream>
+
+1418041464 source:/home/jp/code/EDAF30/Lab4/U3-2/main.cpp
+	<iostream>
+	"bostad.h"
+

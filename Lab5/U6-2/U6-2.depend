@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1418046651 source:/home/jp/code/EDAF30/Lab5/U6-2/main.cpp
+1418047054 source:/home/jp/code/EDAF30/Lab5/U6-2/main.cpp
 	<iostream>
 	"queue.h"
 
-1418046749 source:/home/jp/code/EDAF30/Lab5/U6-2/queue.cpp
+1418051020 source:/home/jp/code/EDAF30/Lab5/U6-2/queue.cpp
 	"queue.h"
 	<stdexcept>
 
