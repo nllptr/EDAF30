@@ -39,3 +39,6 @@ build-*/
 *.app
 
 *.swp
+
+# Directories
+*/bin
