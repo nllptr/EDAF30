@@ -12,11 +12,19 @@ int main()
     skrivUtFalt(test1, 10);
     quicksort::quicksort(test1, 0, 9);
     skrivUtFalt(test1, 10);
+
     cout << endl << endl << "Test 2:" << endl;
-    char str[] = "Testar lite med tecken";
+    char str[] = "Testing with characters";
     skrivUtFalt(str, 22);
     quicksort::quicksort(str, 0, 21);
     skrivUtFalt(str, 22);
+
+    cout << endl << endl << "Test 3:" << endl;
+    string str2[] = {"Testing with characters", "Another test", "more elements!"};
+    skrivUtFalt(str2, 3);
+    quicksort::quicksort(str2, 0, 2);
+    skrivUtFalt(str2, 3);
+
     return 0;
 }
 

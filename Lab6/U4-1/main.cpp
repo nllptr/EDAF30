@@ -30,7 +30,7 @@ int main()
     p = 6.28;
     std::cout << "Pushing " << std::setw(2) << p << " onto the stack." << std::endl;
     s2.push(p);
-    p = 9.42;
+    p = 9.56;
     std::cout << "Pushing " << std::setw(2) << p << " onto the stack." << std::endl;
     s2.push(p);
 

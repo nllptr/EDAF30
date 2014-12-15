@@ -17,7 +17,7 @@ int main()
 {
     int servedCustomers = 0;
     double total = 0;
-    Queue<Kund> q(1);
+    Queue<Kund> q;
 
     while(true) {
         cout << "---------------------------------------------------" << endl;

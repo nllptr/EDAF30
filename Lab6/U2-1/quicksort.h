@@ -8,6 +8,9 @@ namespace {
     template <class T>
     int choosePivot(T array[], int low, int high)
     {
+        // In this implementation, the pivot is just the middle of the array
+        // A more effective implementation would be to return the median
+        // of the first, middle, and last element.
         return low + ((high - low) / 2);
     }
 
@@ -15,7 +18,7 @@ namespace {
     int partition(T array[], int low, int high)
     {
         int pivotIndex = choosePivot(array, low, high);
-        int pivotValue = array[pivotIndex];
+        T pivotValue = array[pivotIndex];
         std::swap(array[pivotIndex], array[high]);
         int storeIndex = low;
         for(int i = low; i < high; i++) {
@@ -36,9 +39,10 @@ namespace quicksort {
     {
         if(low < high) {
             int p = partition(array, low, high);
-            quicksort(array, low, p - 1);
-            quicksort(array, p + 1, high);
+            quicksort(array, low, p - 1);  // Recursively call quicksort on subarrays
+            quicksort(array, p + 1, high); // to the left and right of the pivot element.
         }
     }
 }
+
 #endif // QUICKSORT_H
