@@ -42,4 +42,4 @@ build-*/
 *.swp
 
 # Directories
-*/bin
+bin/
