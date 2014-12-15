@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1418041464 source:/home/jp/code/EDAF30/Lab4/U6-2/main.cpp
-	<iostream>
-	<fstream>
-	<string>
-

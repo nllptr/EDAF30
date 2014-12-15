@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1418014989 source:/home/gus/code/EDAF30/Lab5/U3-2/main.cpp
-	<iostream>
-	<forward_list>
-	<cstdlib>
-

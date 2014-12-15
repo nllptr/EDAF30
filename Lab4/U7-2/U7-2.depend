@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1418013708 source:/home/gus/code/EDAF30/Lab4/U7-2/main.cpp
-	<iostream>
-	<iomanip>
-	<fstream>
-
