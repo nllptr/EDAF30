@@ -16,15 +16,15 @@ int partition(T arr[], int left, int right)
     int index = pivot(arr, left, right);
     T value = arr[index];
     swap(arr[index], arr[right]);
-    int save = left;
+    int pos = left;
     for(int i = left; i < right; i++) {
         if(arr[i] < value) {
-            swap(arr[i], arr[save]);
-            save++;
+            swap(arr[i], arr[pos]);
+            pos++;
         }
     }
-    swap(arr[save], arr[right]);
-    return save;
+    swap(arr[pos], arr[right]);
+    return pos;
 }
 
 template <class T>
