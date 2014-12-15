@@ -5,9 +5,9 @@ using namespace std;
 
 int main()
 {
-    int year = 92;
+    int year = 1;
     int month = 1;
-    int day = 19;
+    int day = 1;
     short int packed = pack(year, month, day);
     int y;
     int m;
