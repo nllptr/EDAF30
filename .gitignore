@@ -2,6 +2,7 @@
 *.cbp
 *.workspace
 *.layout
+*.depend
 
 # pri files (Qt Creator)
 *.pri
