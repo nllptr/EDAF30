@@ -15,7 +15,9 @@ Bank::Bank(char *data_file)
         infile >> Account::next_account_number;
         Account acc;
         while(infile >> acc) {
-            accounts.push_back(acc);
+            //accounts.push_back(acc);
+            accounts_by_number.insert(std::pair<int, Account>(acc.get_number(), acc));
+            accounts_by_owner.insert(std::pair<std::string, Account>(acc.get_owner(), acc));
         }
         infile.close();
     } else {
@@ -32,13 +34,36 @@ Bank::Bank(char *data_file)
 int Bank::openAccount(account_t type, std::string owner)
 {
     Account account(type, owner);
-    accounts.push_back(account);
+    //accounts.push_back(account);
+    accounts_by_number.insert(std::pair<int, Account>(account.get_number(), account));
+    accounts_by_owner.insert(std::pair<std::string, Account>(account.get_owner(), account));
     storeAccount(account);
     return account.get_number();
 }
 
-const std::vector<Account> Bank::getAccounts() {
-    return accounts;
+const std::vector<Account> Bank::getAllAccounts() const
+{
+    std::vector<Account> output;
+    for(auto m : accounts_by_number) {
+        output.push_back(m.second);
+    }
+    return output;
+}
+
+Account Bank::findAccountByNumber(int account)
+{
+    std::map<int, Account>::iterator it = accounts_by_number.find(account);
+    return it != accounts_by_number.end() ? it->second : Account();
+}
+
+std::vector<Account> Bank::findAccountsByOwner(std::string owner)
+{
+    std::pair<std::multimap<std::string, Account>::iterator, std::multimap<std::string, Account>::iterator> ret;
+    ret = accounts_by_owner.equal_range(owner);
+    std::vector<Account> output;
+    for(std::multimap<std::string, Account>::iterator it = ret.first; it != ret.second; ++it)
+        output.push_back(it->second);
+    return output;
 }
 
 void Bank::storeAccount(Account &account)
