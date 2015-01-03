@@ -3,11 +3,31 @@
 #include <iostream>
 #include <iomanip>
 
+bool Account::deposit(double amount)
+{
+    if(amount > 0) {
+        account_balance += amount;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Account::withdraw(double amount)
+{
+    if(amount > 0 && amount <= account_balance) {
+        account_balance -= amount;
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void Account::print_info() const
 {
-    std::cout << std::setw(10) << "#: " << get_number() << std::endl;
+    std::cout << std::setw(10) << "#: " << account_number << std::endl;
     std::cout << std::setw(10) << "Type: ";
-    switch(get_type()) {
+    switch(account_type) {
     case SAVINGS:
         std::cout << "Savings account" << std::endl;
         break;
@@ -17,8 +37,8 @@ void Account::print_info() const
     default:
         break;
     }
-    std::cout << std::setw(10) << "Owner: " << get_owner() << std::endl;
-    std::cout << std::setw(10) << "Balance: " << std::fixed << std::setprecision(2) << get_balance() << std::endl;
+    std::cout << std::setw(10) << "Owner: " << account_owner << std::endl;
+    std::cout << std::setw(10) << "Balance: " << std::fixed << std::setprecision(2) << account_balance << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& o, Account& a)

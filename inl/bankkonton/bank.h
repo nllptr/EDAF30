@@ -29,16 +29,18 @@ class Bank
 {
 public:
     Bank(char *data_file);
-    //~Bank();
+    ~Bank();
     int openAccount(account_t type, std::string owner);
-    const std::vector<Account> getAllAccounts() const;
-    void storeAccount(Account &account);
-    Account findAccountByNumber(int account);
-    std::vector<Account> findAccountsByOwner(std::string owner);
+    std::vector<Account*> getAllAccounts();
+    void storeAccount(Account* account);
+    Account* findAccountByNumber(int account);
+    std::vector<Account*> findAccountsByOwner(std::string owner);
+    bool deposit(int account, double amount);
+    bool withdraw(int account, double amount);
 private:
     //std::vector<Account> accounts;
-    std::map<int, Account> accounts_by_number;
-    std::multimap<std::string, Account> accounts_by_owner;
+    std::map<int, Account*> accounts_by_number;
+    std::multimap<std::string, Account*> accounts_by_owner;
     char *data_file;
 };
 
