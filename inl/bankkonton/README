@@ -1,0 +1,6 @@
+Source code for bank assignment.
+
+TODO:
+- Implement closing of accounts.
+- Invistigate necessity of getters and setters. Possibly make
+  Bank a friend of Account and allow direct access to data members.
