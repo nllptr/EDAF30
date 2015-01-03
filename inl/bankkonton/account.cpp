@@ -55,14 +55,9 @@ std::istream& operator>>(std::istream& i, Account& a)
 {
     int number;
     int type;
-//    char char_owner[Account::OWNER_MAX_LENGTH] = "";
     std::string owner;
     double balance;
 
-//    i >> number >> type >> std::ws;
-//    i.getline(char_owner, Account::OWNER_MAX_LENGTH);
-//    std::string owner(char_owner);
-//    i >> balance;
     i >> number >> type >> owner >> balance;
     a.account_number = number;
     a.account_type = static_cast<account_t>(type);
