@@ -12,3 +12,6 @@ HEADERS += \
     account.h \
     bank.h
 
+OTHER_FILES += \
+    README
+

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <algorithm>
 #include <cctype>
@@ -23,10 +24,13 @@ void showHelp();
 int selectAccount();
 void deposit(int account);
 void withdraw(int account);
+void modifyType(int account);
+void modifyOwner(int account);
 
 int main()
 {
     bank = new Bank(data_file);
+    int selected_account = -1;
 
     cout << "================" << endl;
     cout << " Superbank v0.1" << endl;
@@ -34,24 +38,23 @@ int main()
     cout << "Type ? for help." << endl << endl;
 
     while(true) {
-        string command = getCommand("Superbank");
+        string command = getCommand("[Selected account: " + (selected_account < 0 ? "NONE" : to_string(selected_account)) + "]");
 
         if(command == "Q") break;
         else if(command == "?") showHelp();
         else if(command == "LA") showInfo(bank->getAllAccounts());
         else if(command == "LO") showInfoByOwner();
         else if(command == "O") openAccount();
-        else if(command == "S") {
-            int account = selectAccount();
-            while(account > 0) {
-                command = getCommand("Superbank>" + to_string(account));
-                if(command == "Q") break;
-                else if(command == "?") showHelp();
-                else if(command == "I") showInfoByNumber(account);
-                else if(command == "D") deposit(account);
-                else if(command == "W") withdraw(account);
-            }
-        } else cout << "Unrecognized command. Try again." << endl;
+        else if(command == "I" || command == "D" || command == "W" || command == "MT" || command == "MO" || command == "C") {
+            if(selected_account < 0) cout << "You need to select an account before issuing this command." << endl;
+            else if(command == "I") showInfoByNumber(selected_account);
+            else if(command == "D") deposit(selected_account);
+            else if(command == "W") withdraw(selected_account);
+            else if(command == "MT") modifyType(selected_account);
+            else if(command == "MO") modifyOwner(selected_account);
+            else if(command == "C") cout << "Close" << endl;
+        } else if(command == "S") selected_account = selectAccount();
+        else cout << "Unrecognized command. Try again." << endl;
     }
 
     cout << "Bye!" << endl;
@@ -61,7 +64,7 @@ int main()
 
 string getCommand(string prompt)
 {
-    cout << prompt << "> ";
+    cout << prompt << "$ ";
     string command;
     cin >> command;
     for(auto &c : command) c = toupper(c); // Convert command to upper case. Makes checking checking easier.
@@ -142,7 +145,8 @@ void showHelp()
     cout << "\ti\tShow account information" << endl;
     cout << "\td\tDeposit" << endl;
     cout << "\tw\tWithdraw" << endl;
-    cout << "\tm\tModify account" << endl;
+    cout << "\tmt\tModify account type" << endl;
+    cout << "\tmo\tModify account owner" << endl;
     cout << "\tc\tClose account" << endl << endl;
     cout << "o\tOpen account" << endl;
     cout << "q\tQuit program/exit the currently selected account" << endl;
@@ -173,4 +177,29 @@ void withdraw(int account)
         return withdraw(account);
     }
     if(!bank->withdraw(account, amount)) cout << "Withdrawal unsuccessful." << endl;
+}
+
+void modifyType(int account)
+{
+    cout << "Enter new account type (1: Checking, 2: Savings): ";
+    int type;
+    while(!(cin >> type)) {
+        cin.clear();
+        cin.ignore();
+        cout << "Invalid input, try again: ";
+    }
+    while(type < 1 || type > COUNT) {
+        cout << "Invalid account type. Try again." << endl;
+        return modifyType(account);
+    }
+    if(!bank->modifyAccountType(account, static_cast<account_t>(--type))) cout << "Account type change uncuccessful." << endl;
+
+}
+
+void modifyOwner(int account)
+{
+    cout << "Enter new account owner ID: ";
+    string owner;
+    cin >> owner;
+    if(!bank->modifyAccountOwner(account, owner)) cout << "Account owner change unsuccessful." << endl;
 }

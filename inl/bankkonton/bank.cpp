@@ -125,3 +125,25 @@ bool Bank::withdraw(int account, double amount)
         return true;
     }
 }
+
+bool Bank::modifyAccountType(int account, account_t type)
+{
+    Account* acc = findAccountByNumber(account);
+    if(acc == NULL) return false;
+    else {
+        acc->set_type(type);
+        storeAccount(acc);
+        return true;
+    }
+}
+
+bool Bank::modifyAccountOwner(int account, std::string owner)
+{
+    Account* acc = findAccountByNumber(account);
+    if(acc == NULL) return false;
+    else {
+        acc->set_owner(owner);
+        storeAccount(acc);
+        return true;
+    }
+}

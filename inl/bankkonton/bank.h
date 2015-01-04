@@ -37,8 +37,9 @@ public:
     std::vector<Account*> findAccountsByOwner(std::string owner);
     bool deposit(int account, double amount);
     bool withdraw(int account, double amount);
+    bool modifyAccountType(int account, account_t type);
+    bool modifyAccountOwner(int account, std::string owner);
 private:
-    //std::vector<Account> accounts;
     std::map<int, Account*> accounts_by_number;
     std::multimap<std::string, Account*> accounts_by_owner;
     char *data_file;
