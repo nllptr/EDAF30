@@ -1,8 +1,6 @@
-Source code for bank assignment.
+Some notes:
 
-TODO:
-- Implement closing of accounts.
-- Invistigate necessity of getters and setters. Possibly make
-  Bank a friend of Account and allow direct access to data members.
-- Comment code
-- CRUD check
+- The bank uses single word strings as account owner id.
+  Typically, a Swedish person number would be used, but is not enforced.
+- Account numbers are integers starting at 1000000. There is no upper limit,
+  so there is the possibility of overflowing the integer type.

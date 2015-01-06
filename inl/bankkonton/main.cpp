@@ -9,14 +9,17 @@
 
 using namespace std;
 
-// This bank uses seven digit account numbers.
+// To access the static variable in Account, it has to be declared here.
 int Account::next_account_number;
 
-char *data_file = (char *)"datafile";
+string data_file = "datafile";
 Bank *bank;
+int selected_account;
 
+// Function prototypes
 string getCommand(string prompt);
 void openAccount();
+void closeAccount(int account);
 void showInfo(vector<Account*> accounts);
 void showInfoByOwner();
 void showInfoByNumber(int account);
@@ -29,8 +32,8 @@ void modifyOwner(int account);
 
 int main()
 {
-    bank = new Bank(data_file);
-    int selected_account = -1;
+    bank = new Bank(data_file.c_str());
+    selected_account = -1;
 
     cout << "================" << endl;
     cout << " Superbank v0.1" << endl;
@@ -52,7 +55,7 @@ int main()
             else if(command == "W") withdraw(selected_account);
             else if(command == "MT") modifyType(selected_account);
             else if(command == "MO") modifyOwner(selected_account);
-            else if(command == "C") cout << "Close" << endl;
+            else if(command == "C") closeAccount(selected_account);
         } else if(command == "S") selected_account = selectAccount();
         else cout << "Unrecognized command. Try again." << endl;
     }
@@ -88,6 +91,20 @@ void openAccount()
     string owner_id;
     cin >> owner_id;
     cout << "Created account: " << bank->openAccount(static_cast<account_t>(--type), owner_id) << endl;
+}
+
+void closeAccount(int account)
+{
+    cout << "Are you sure you want to close account " << account << " (yes/no)? ";
+    string input;
+    cin >> input;
+    if(input == "yes") {
+        bank->closeAccount(account);
+        selected_account = -1;
+        cout << "Account closed." << endl;
+    } else {
+        cout << "Account not closed." << endl;
+    }
 }
 
 void showInfo(vector<Account*> accounts)
@@ -185,7 +202,7 @@ void modifyType(int account)
     int type;
     while(!(cin >> type)) {
         cin.clear();
-        cin.ignore();
+        cin.ignore(1000, '\n');
         cout << "Invalid input, try again: ";
     }
     while(type < 1 || type > COUNT) {

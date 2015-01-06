@@ -6,31 +6,13 @@
 #include <vector>
 #include <map>
 
-class SortByAccountNumber
-{
-public:
-    bool operator() (const Account& lhs, const Account& rhs)
-    {
-        return lhs.get_number() < rhs.get_number();
-    }
-};
-
-class SortByAccountOwner
-{
-public:
-    bool operator() (const Account& lhs, const Account& rhs)
-    {
-        if(lhs.get_owner() == rhs.get_owner()) return lhs.get_number() < rhs.get_number();
-        else return lhs.get_owner() < rhs.get_owner();
-    }
-};
-
 class Bank
 {
 public:
-    Bank(char *data_file);
+    Bank(const char *data_file);
     ~Bank();
     int openAccount(account_t type, std::string owner);
+    bool closeAccount(int account);
     std::vector<Account*> getAllAccounts();
     void storeAccount(Account* account);
     Account* findAccountByNumber(int account);
@@ -41,8 +23,9 @@ public:
     bool modifyAccountOwner(int account, std::string owner);
 private:
     std::map<int, Account*> accounts_by_number;
+    // accounts_by_owner needs to be a multimap, since a person can have multiple accounts
     std::multimap<std::string, Account*> accounts_by_owner;
-    char *data_file;
+    const char *data_file;
 };
 
 #endif // BANK_H
